@@ -22,7 +22,7 @@ class MessageList extends React.Component{
 			<div className="message-list">
 			
 				{DUMMY_DATA.map((message,index) =>{
-					//this.props.map instead of DUMMY_DATA.map
+					//this.props.messages.map instead of DUMMY_DATA.map when api is complete
 					return(
 						<Message key={index} username={message.senderId} text={message.text}/>
 					)
