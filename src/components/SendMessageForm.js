@@ -13,13 +13,17 @@ class SendMessageForm extends React.Component{
 	}
 
 	handleChange(e){
-		this.setState({message:e.target.value})
+		this.setState({
+			message:e.target.value
+		})
 	}
 
 	handleSubmit(e){
+		//
 		e.preventDefault();
 		//send of message to api 
-		//clean state
+		this.props.sendMessage(this.state.message);
+		//clean state		
 		this.setState({
 			message:'',
 		})
@@ -27,14 +31,14 @@ class SendMessageForm extends React.Component{
 
 	render(){
 		return(
-			<form onSubmit={this.handleSubmit} 
-				  className="send-message-form">
+			<form 
+				onSubmit={this.handleSubmit} 
+				className="send-message-form">
 				<input 
 					onChange={this.handleChange}
 					value={this.state.message}
-					placeholder="Message" 
-					type="text"
-				/>
+					placeholder="Type message here! and hit enter" 
+					type="text" />
 			</form>
 		)
 	}
